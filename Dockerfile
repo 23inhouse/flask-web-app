@@ -3,7 +3,8 @@ FROM ubuntu:20.04
 MAINTAINER Benjamin Lewis "23inhouse@gmail.com"
 
 RUN apt-get update -y && \
-    apt-get install -y python3 python3-dev python3-pip
+    apt-get install -y python3 python3-dev python3-pip \
+    tesseract-ocr
 
 COPY ./requirements.txt /app/requirements.txt
 
