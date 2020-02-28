@@ -4,11 +4,15 @@ import PIL
 import pytesseract
 import requests
 
+import html_page
+
 from flask import Flask
 from flask import request
 from io import BytesIO
 from PIL import Image
 from PIL import ImageFilter
+
+from html_page import HtmlPage
 
 app = Flask(__name__)
 
@@ -16,10 +20,9 @@ app = Flask(__name__)
 def home():
     img_url = request.args.get('img')
     title = 'Your image url is {}'.format(img_url)
-    template = '<p>{}</p><p><img src="{}"/></p><p>{}</p>'
     text = process_image(img_url)
-    html = template.format(title, img_url, text)
-    return html
+    html = HtmlPage()
+    return html.render(title, img_url, text)
 
 def process_image(url):
     image = _get_image(url)

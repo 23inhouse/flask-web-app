@@ -14,6 +14,8 @@ RUN pip3 install -r requirements.txt
 
 COPY . /app
 
+RUN python3 -m unittest discover -s ocr -p '*_test.py'
+
 ENTRYPOINT [ "python3" ]
 
-CMD [ "app.py" ]
+CMD [ "ocr/app.py" ]
