@@ -1,11 +1,9 @@
 import flask
-
-import html_page
-import ocr
-
 from flask import Flask
 from flask import request
 
+import html_page
+import ocr
 from html_page import HtmlPage
 from ocr import OCR
 
