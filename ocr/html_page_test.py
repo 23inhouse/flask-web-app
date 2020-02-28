@@ -10,8 +10,8 @@ class TestHtmlPage(unittest.TestCase):
 
     def test_with_content(self):
         html_page = HtmlPage()
-        rendered = html_page.render("title", "img_url", "text")
-        self.assertEqual(rendered, "<p>title</p><p><img src=\"img_url\"/></p><p>text</p>")
+        rendered = html_page.render("img_url", "text")
+        self.assertEqual(rendered, "<p>Your image url is img_url</p><p><img src=\"img_url\"/></p><p>text</p>")
 
 if __name__ == "__main__":
      unittest.main()

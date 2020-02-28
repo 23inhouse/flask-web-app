@@ -15,10 +15,9 @@ app = Flask(__name__)
 def home():
     try:
         img_url = request.args.get('img')
-        title = 'Your image url is {}'.format(img_url)
         text = OCR(img_url).text()
-        html = HtmlPage()
-        return html.render(title, img_url, text)
+        html = HtmlPage().render(img_url, text)
+        return html
     except ValueError:
         return "<p>Please ensure there is a valid img arg</p><p>Example: <a href=\"http://0.0.0.0:5000/?img=https://i.stack.imgur.com/vrkIj.png\">http://0.0.0.0:5000/?img=https://i.stack.imgur.com/vrkIj.png</a>"
 
